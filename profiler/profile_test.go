@@ -82,7 +82,7 @@ func TestRunProfile(t *testing.T) {
 		require.NoError(t, err)
 		var spanTime time.Duration
 		for _, s := range parsed.Sample {
-			if _, ok := s.Label["dd.span_id"]; ok {
+			if _, ok := s.Label["span id"]; ok {
 				spanTime += time.Duration(s.Value[1])
 			}
 		}
