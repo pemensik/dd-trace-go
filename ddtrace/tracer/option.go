@@ -101,6 +101,8 @@ type config struct {
 	// noDebugStack disables the collection of debug stack traces globally. No traces reporting
 	// errors will record a stack trace when this option is set.
 	noDebugStack bool
+
+	codeHotspots bool
 }
 
 // HasFeature reports whether feature f is enabled.
@@ -470,6 +472,12 @@ func WithServiceVersion(version string) StartOption {
 func WithHostname(name string) StartOption {
 	return func(c *config) {
 		c.hostname = name
+	}
+}
+
+func WithCodeHotspots(enabled bool) StartOption {
+	return func(c *config) {
+		c.codeHotspots = enabled
 	}
 }
 
